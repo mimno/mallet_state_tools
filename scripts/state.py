@@ -1,6 +1,5 @@
 import regex
 
-
 import gzip, regex
 
 whitespace_pattern = regex.compile("\s+")

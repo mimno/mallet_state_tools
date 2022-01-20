@@ -51,4 +51,5 @@ for left_topic, c in left_topic_totals.most_common():
 for right_topic, c in right_topic_totals.most_common():
     top_words = " ".join([w for w,c in right_topic_words[right_topic].most_common(20)])
     entropy = metrics.counter_entropy(right_topic_topics[right_topic], right_topic_totals[right_topic])
+    print(right_topic_topics[right_topic])
     print(f"right\t{entropy: 2.3f}\t{c}\t{right_topic}\t{top_words}")
