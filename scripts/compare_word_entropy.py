@@ -38,5 +38,12 @@ for word, c in word_counts.most_common(2000):
     right_entropy = metrics.counter_entropy(word_right_topics[word], word_counts[word])
     joint_entropy = metrics.counter_entropy(word_topic_pair_counters[word], word_counts[word])
     mutual_info = left_entropy + right_entropy - joint_entropy
+
+    if left_entropy + right_entropy == 0.0:
+        normalized_mi = 1
+    else:
+        normalized_mi = (2 * mutual_info) / (left_entropy + right_entropy)
+        
     #print(word_topic_pair_counters[word])
-    print(f"{left_entropy: 2.3f}\t{right_entropy: 2.3f}\t{joint_entropy: 2.3f}\t{mutual_info: 2.3f}\t{c}\t{word}")
+    print(f"{left_entropy: 2.3f}\t{right_entropy: 2.3f}\t{joint_entropy: 2.3f}\t{mutual_info: 2.3f}\t{normalized_mi: 1.3f}\t{c}\t{word}")
+
